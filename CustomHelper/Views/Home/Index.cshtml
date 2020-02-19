@@ -1,0 +1,40 @@
+﻿@using CustomHelper.CustomHelpers
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Helper By Static Method</h1>
+    <div>
+        @Html.Raw(HelperByStaticMethod.img("/Content/Images/ironman1.jpg", "Ironman", "Mark Zuckerberg"))
+        @Html.Raw(HelperByStaticMethod.img("/Content/Images/ironman2.jpg", "Mark Zuck", "Mark Zuckerberg"))
+        @Html.Raw(HelperByStaticMethod.img("/Content/Images/hologram.jpg", "Mark Zuck", "Mark Zuckerberg"))
+        @Html.Raw(HelperByStaticMethod.img("/Content/Images/loaderGif.gif", "Mark Zuck", "Mark Zuckerberg"))
+    </div>
+
+    <h1>Helper By Extension Method</h1>
+    <div>
+        @Html.img("/Content/Images/ironman1.jpg", "Ironman", "Mark Zuckerberg")
+        @Html.img("/Content/Images/ironman2.jpg", "Ironman", "Mark Zuckerberg")
+        @Html.img("/Content/Images/hologram.jpg", "Ironman", "Mark Zuckerberg")
+        @Html.img("/Content/Images/loaderGif.gif", "Ironman", "Mark Zuckerberg")
+    </div>
+
+    <h1>Helper By @@helper</h1>
+
+    @helper img(string source, string alt, string title, int height = 128, int width = 128)
+    { 
+    <img src="@source" alt="@alt" title="@title" height="@height" width="@width" />
+    }
+<div>
+    @img("/Content/Images/ironman1.jpg", "Ironman", "Mark Zuckerberg")
+    @img("/Content/Images/ironman2.jpg", "Ironman", "Mark Zuckerberg")
+    @img("/Content/Images/hologram.jpg", "Ironman", "Mark Zuckerberg")
+    @img("/Content/Images/loaderGif.gif", "Ironman", "Mark Zuckerberg")
+</div>
+</body>
+</html>
